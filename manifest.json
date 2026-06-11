@@ -1,0 +1,44 @@
+{
+  "name": "World Cup 2026 — Live Scores & Schedule",
+  "short_name": "WC 2026",
+  "description": "FIFA World Cup 2026 live scores, schedule and standings",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0b0f14",
+  "theme_color": "#0b0f14",
+  "lang": "en",
+  "categories": ["sports", "news"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><circle cx='96' cy='96' r='92' fill='%230b0f14' stroke='%2300d084' stroke-width='6'/><text y='130' x='96' text-anchor='middle' font-size='110' font-family='sans-serif'>⚽</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><circle cx='256' cy='256' r='248' fill='%230b0f14' stroke='%2300d084' stroke-width='8'/><text y='340' x='256' text-anchor='middle' font-size='280' font-family='sans-serif'>⚽</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Live Scores",
+      "url": "./index.html?tab=live",
+      "description": "View live match scores"
+    },
+    {
+      "name": "Today's Matches",
+      "url": "./index.html?tab=today",
+      "description": "See today's schedule"
+    },
+    {
+      "name": "Group Standings",
+      "url": "./index.html?tab=standings",
+      "description": "View group standings"
+    }
+  ]
+}

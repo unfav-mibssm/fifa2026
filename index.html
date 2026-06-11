@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="FIFA World Cup 2026 - Live Scores, Schedule & Standings" />
+  <meta name="theme-color" content="#0b0f14" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- style.css is the renamed style-2.css -->
+  <title>World Cup 2026 — Live Scores & Schedule</title>
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="header-brand">
+        <span class="header-logo" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="14" r="13" stroke="#00d084" stroke-width="2"/>
+            <path d="M14 3 L16.5 10H24L18 14.5L20.5 21.5L14 17L7.5 21.5L10 14.5L4 10H11.5Z" fill="#00d084" opacity="0.85"/>
+          </svg>
+        </span>
+        <span class="header-title">World 9Cup <strong>2026</strong></span>
+      </div>
+      <div class="header-actions">
+        <button class="header-btn" id="searchToggleBtn" aria-label="Open search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Search bar (hidden by default) -->
+    <div class="search-bar" id="searchBar" aria-hidden="true">
+      <div class="search-input-wrap">
+        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Search team, country, stadium…" autocomplete="off" aria-label="Search matches" />
+        <button class="search-clear" id="searchClear" aria-label="Clear search">✕</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-art" aria-hidden="true">
+      <!-- Pitch lines SVG -->
+      <svg class="pitch-svg" viewBox="0 0 400 220" fill="none" preserveAspectRatio="xMidYMid slice">
+        <ellipse cx="200" cy="110" rx="60" ry="60" stroke="#00d084" stroke-width="1.2" opacity="0.12"/>
+        <line x1="200" y1="10" x2="200" y2="210" stroke="#00d084" stroke-width="1" opacity="0.1"/>
+        <rect x="20" y="30" width="400" height="160" rx="4" stroke="#00d084" stroke-width="1" opacity="0.07"/>
+        <rect x="20" y="70" width="70" height="80" stroke="#00d084" stroke-width="1" opacity="0.1"/>
+        <rect x="310" y="70" width="70" height="80" stroke="#00d084" stroke-width="1" opacity="0.1"/>
+        <circle cx="200" cy="110" r="3" fill="#00d084" opacity="0.3"/>
+      </svg>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="hero-hosts">🇺🇸 USA &nbsp;·&nbsp; 🇲🇽 Mexico &nbsp;·&nbsp; 🇨🇦 Canada</span>
+      </div>
+      <h1 class="hero-heading">FIFA World Cup <span class="hero-year">2026</span></h1>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num">48</span>
+          <span class="hero-stat-label">Teams</span>
+        </div>
+        <div class="hero-stat-divider" aria-hidden="true"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">104</span>
+          <span class="hero-stat-label">Matches</span>
+        </div>
+        <div class="hero-stat-divider" aria-hidden="true"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">16</span>
+          <span class="hero-stat-label">Venues</span>
+        </div>
+      </div>
+      <!-- Countdown -->
+      <div class="countdown-wrap" id="heroCountdown">
+        <div class="countdown-label">Tournament Opens In</div>
+        <div class="countdown-blocks">
+          <div class="countdown-block">
+            <span class="countdown-num" id="cdDays">--</span>
+            <span class="countdown-unit">Days</span>
+          </div>
+          <span class="countdown-sep" aria-hidden="true">:</span>
+          <div class="countdown-block">
+            <span class="countdown-num" id="cdHours">--</span>
+            <span class="countdown-unit">Hrs</span>
+          </div>
+          <span class="countdown-sep" aria-hidden="true">:</span>
+          <div class="countdown-block">
+            <span class="countdown-num" id="cdMins">--</span>
+            <span class="countdown-unit">Min</span>
+          </div>
+          <span class="countdown-sep" aria-hidden="true">:</span>
+          <div class="countdown-block">
+            <span class="countdown-num" id="cdSecs">--</span>
+            <span class="countdown-unit">Sec</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== NAV TABS ===================== -->
+  <nav class="tabs-nav" id="tabsNav" role="tablist" aria-label="Match filters">
+    <div class="tabs-inner">
+      <button class="tab-btn active" role="tab" aria-selected="true" data-tab="all">All</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="live">
+        Live <span class="live-dot" aria-hidden="true"></span>
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="today">Today</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="upcoming">Upcoming</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="finished">Finished</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="standings">Standings</button>
+    </div>
+  </nav>
+
+  <!-- ===================== STAGE FILTER CHIPS ===================== -->
+  <div class="filter-chips" id="filterChips" role="group" aria-label="Stage filter">
+    <button class="chip active" data-stage="all">All Stages</button>
+    <button class="chip" data-stage="Group">Groups</button>
+    <button class="chip" data-stage="Round of 32">R32</button>
+    <button class="chip" data-stage="Round of 16">R16</button>
+    <button class="chip" data-stage="Quarter Final">QF</button>
+    <button class="chip" data-stage="Semi Final">SF</button>
+    <button class="chip" data-stage="Third Place">3rd</button>
+    <button class="chip" data-stage="Final">Final</button>
+  </div>
+
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main class="main-content" id="mainContent">
+
+    <!-- Matches view -->
+    <div id="matchesView">
+      <div class="matches-empty" id="matchesEmpty" hidden>
+        <div class="empty-icon" aria-hidden="true">🔍</div>
+        <p>No matches found</p>
+        <span>Try a different filter or search term</span>
+      </div>
+      <div class="matches-list" id="matchesList" aria-label="Matches list" aria-live="polite"></div>
+    </div>
+
+    <!-- Standings view -->
+    <div id="standingsView" hidden>
+      <div class="standings-container" id="standingsContainer"></div>
+    </div>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-logo" aria-hidden="true">⚽</span>
+      <p class="footer-title">World Cup 2026 Schedule</p>
+      <p class="footer-sub">All times shown in your local timezone · Updated live</p>
+      <p class="footer-credit">Made for football fans worldwide</p>
+    </div>
+  </footer>
+
+  <!-- ===================== BOTTOM NAV ===================== -->
+  <nav class="bottom-nav" aria-label="Main navigation">
+    <button class="bnav-btn active" data-tab="all" aria-label="Home">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Home</span>
+    </button>
+    <button class="bnav-btn" data-tab="live" aria-label="Live matches">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
+      <span>Live</span>
+    </button>
+    <button class="bnav-btn" data-tab="upcoming" aria-label="Schedule">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span>Schedule</span>
+    </button>
+    <button class="bnav-btn" data-tab="standings" aria-label="Standings">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      <span>Standings</span>
+    </button>
+    <button class="bnav-btn" data-tab="finished" aria-label="Results">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Results</span>
+    </button>
+  </nav>
+
+  <!-- ===================== MATCH DETAIL MODAL ===================== -->
+  <div class="modal-overlay" id="matchModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-box" id="modalBox">
+      <button class="modal-close" id="modalClose" aria-label="Close match details">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
